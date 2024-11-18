@@ -14,7 +14,7 @@ public class TcpController {
 
     @GetMapping("/sendToServer")
     public Mono<String> sendMessageToServer(@RequestParam String message) {
-        return tcpClient.sendMessage(message)
+        return tcpClient.sendMessageWithResponse(message)
                 .map(response -> "Server response: " + response);
     }
 }
